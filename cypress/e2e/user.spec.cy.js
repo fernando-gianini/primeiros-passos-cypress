@@ -15,7 +15,10 @@ describe('Orange HRM Tests', () => {
     genericField: ".oxd-input--active",
     dataField: "[placeholder='yyyy-dd-mm']",
     dataCloseButton: ".--close",
-    submitButton: "[type='submit']"
+    submitButton: "[type='submit']",
+    bollansSelect: ".oxd-select-text-input",
+    selectNationality: ":nth-child(27)",
+    maritalStatusField: "span"
   }
 
 
@@ -30,14 +33,15 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.firstNameField).clear().type('Fernando')
     cy.get(selectorsList.middleNameField).clear().type('Gianini')
     cy.get(selectorsList.lastNameField).clear().type('Cavalheiro')
-    cy.get(selectorsList.genericField).eq(3).clear().type('emploryee')
-    cy.get(selectorsList.genericField).eq(4).clear().type('otherIdTest')
-    cy.get(selectorsList.genericField).eq(5).clear().type('driveLicenseNumberTest')
+    cy.get(selectorsList.genericField).eq(4).clear().type('emploryee')
+    cy.get(selectorsList.genericField).eq(5).clear().type('otherIdTest')
+    cy.get(selectorsList.genericField).eq(6).clear().type('driveLicenseNumberTest')
     cy.get(selectorsList.dataField).eq(0).clear().type('2025-03-09')
     cy.get(selectorsList.dataCloseButton).click()
-    cy.get(selectorsList.submitButton).eq(0).click()
-    cy.get('oxd-toast-close')
-    
+    cy.get(selectorsList.bollansSelect).eq(0).click()
+    cy.get(selectorsList.selectNationality).scrollIntoView().click()
+    cy.get(selectorsList.bollansSelect).eq(1).click()
+    cy.get(selectorsList.maritalStatusField).scrollIntoView().click()
 
   })
   it('Login - Fail', () => {
